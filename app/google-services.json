@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "815446623442",
+    "firebase_url": "https://sisfo-absensi.firebaseio.com",
+    "project_id": "sisfo-absensi",
+    "storage_bucket": "sisfo-absensi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815446623442:android:dba47f233f587212",
+        "android_client_info": {
+          "package_name": "com.pertamina.absensiapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "815446623442-re3njdc0d9v97o5h7a4acu0kbdp49pj1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pertamina.absensiapplication",
+            "certificate_hash": "85b13c942e9bdf2834fbe08ba5253b5feaf053d4"
+          }
+        },
+        {
+          "client_id": "815446623442-t01pk0qok2kr4eplij8ot60n8dicbfuj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOQgaSaf2u6dXcy_yA6JcQ0iTLnTOq1e4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "815446623442-t01pk0qok2kr4eplij8ot60n8dicbfuj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="permit"
+            type="com.pertamina.absensiapplication.model.Permit" />
+    </data>
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="8dp"
+        app:cardCornerRadius="12dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingStart="16dp"
+                android:paddingTop="10dp"
+                android:paddingEnd="0dp"
+                android:paddingBottom="10dp">
+
+            <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/profile_image_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="8dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                        android:id="@+id/user_profile_image"
+                        android:layout_width="50dp"
+                        android:layout_height="60dp"
+                        android:contentDescription="@string/user_image"
+                        android:scaleType="fitXY"
+                        app:imageUrl="@{permit.profileImage}"/>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <TextView
+                    android:id="@+id/permit_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:text="@{(permit.title.length() &gt; 40)? permit.title.substring(0, 41)+`...` : permit.title}"
+                    android:textColor="@android:color/black"
+                    android:textSize="15sp"
+                    android:fontFamily="@font/leelawad"
+                    app:layout_constraintEnd_toStartOf="@+id/imageView"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/profile_image_card"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Saya sedang sakit"/>
+
+            <TextView
+                    android:id="@+id/permit_applicant"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{permit.applicantName}"
+                    android:textColor="@android:color/black"
+                    android:fontFamily="@font/leelawad"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/permit_status"
+                    app:layout_constraintStart_toStartOf="@+id/permit_title"
+                    app:layout_constraintTop_toBottomOf="@+id/permit_title"
+                    app:layout_constraintVertical_bias="1.0"
+                    tools:text="Yudha"/>
+
+            <ImageView
+                    android:id="@+id/circle_icon"
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"
+                    android:layout_marginStart="8dp"
+                    android:contentDescription="@string/image_arrow_right"
+                    app:layout_constraintBottom_toBottomOf="@id/permit_applicant"
+                    app:layout_constraintStart_toEndOf="@+id/permit_applicant"
+                    app:layout_constraintTop_toTopOf="@id/permit_applicant"
+                    app:setCircleIcon="@{permit.status}"/>
+
+            <TextView
+                    android:id="@+id/permit_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:fontFamily="@font/leelawad"
+                    android:textColor="@android:color/black"
+                    app:layout_constraintBottom_toBottomOf="@+id/circle_icon"
+                    app:layout_constraintStart_toEndOf="@+id/circle_icon"
+                    app:layout_constraintTop_toTopOf="@+id/circle_icon"
+                    app:layout_constraintVertical_bias="0.655"
+                    app:setStatus="@{permit.status}"/>
+
+            <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:contentDescription="@string/image_arrow_right"
+                    android:src="@drawable/right"
+                    android:layout_marginRight="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

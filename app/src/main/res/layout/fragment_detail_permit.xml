@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="permit_arg"
+            type="com.pertamina.absensiapplication.model.Permit" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:background="#F1EFF1"
+        tools:context=".view.DetailPermitFragment">
+
+        <TextView
+            android:id="@+id/head_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/surat_keterangan"
+            android:fontFamily="@font/leelawdb"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/head2_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/mengijinkan_menugaskan"
+            android:textSize="15sp"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:fontFamily="@font/leelawdb"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/head_title" />
+
+        <TextView
+            android:id="@+id/name_applicant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/nama"
+            android:fontFamily="@font/leelawad"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/head2_title"
+            app:layout_constraintTop_toBottomOf="@+id/head2_title" />
+
+        <TextView
+            android:id="@+id/value_name_applicant"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{permit_arg.applicantName}"
+            android:fontFamily="@font/leelawad"
+            android:textSize="13sp"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/name_applicant"
+            tools:text="Nama Pekerja" />
+
+        <TextView
+            android:id="@+id/number_applicant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/no_pekerja"
+            android:fontFamily="@font/leelawad"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@+id/name_applicant"
+            app:layout_constraintTop_toBottomOf="@+id/name_applicant" />
+
+        <TextView
+            android:id="@+id/value_number_applicant"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{permit_arg.employeeNumber}"
+            android:fontFamily="@font/leelawad"
+            android:textSize="13sp"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/number_applicant"
+            tools:text="Nomor Pekerja" />
+
+        <TextView
+            android:id="@+id/position_applicant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leelawad"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:text="@string/jabatan_golongan"
+            app:layout_constraintStart_toStartOf="@+id/number_applicant"
+            app:layout_constraintTop_toBottomOf="@+id/number_applicant" />
+
+        <TextView
+            android:id="@+id/value_position_applicant"
+            android:layout_width="0dp"
+            android:textSize="13sp"
+            android:layout_height="wrap_content"
+            android:text="@{permit_arg.employeeNumber}"
+            android:fontFamily="@font/leelawad"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/position_applicant"
+            tools:text="Jabatan Pekerja" />
+
+        <TextView
+            android:id="@+id/eselon_applicant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/eselon"
+            android:textSize="13sp"
+            android:fontFamily="@font/leelawad"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/position_applicant"
+            app:layout_constraintTop_toBottomOf="@+id/position_applicant" />
+
+        <TextView
+            android:id="@+id/value_eselon_applicant"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leelawad"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:text="Supply &amp; Distribution Region V"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/eselon_applicant" />
+
+        <View
+            android:id="@+id/separator1"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="#A4A4A4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/eselon_applicant" />
+
+        <TextView
+            android:id="@+id/head3_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:fontFamily="@font/leelawdb"
+            android:text="@string/untuk_melaksanakan"
+            android:textSize="15sp"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/separator1" />
+
+        <CheckBox
+            android:id="@+id/pn_dn_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:enabled="false"
+            android:fontFamily="@font/leelawad"
+            android:textStyle="bold"
+            android:text="@string/pn_dn"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/head3_title" />
+
+        <CheckBox
+            android:id="@+id/pn_ln_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leelawad"
+            android:textStyle="bold"
+            android:layout_marginStart="24dp"
+            android:enabled="false"
+            android:text="@string/pn_ln"
+            app:layout_constraintStart_toEndOf="@+id/pn_dn_checkbox"
+            app:layout_constraintTop_toTopOf="@+id/pn_dn_checkbox" />
+
+        <CheckBox
+            android:id="@+id/sij_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:fontFamily="@font/leelawad"
+            android:textStyle="bold"
+            android:enabled="false"
+            android:text="@string/sij"
+            app:layout_constraintStart_toEndOf="@+id/pn_ln_checkbox"
+            app:layout_constraintTop_toTopOf="@+id/pn_ln_checkbox" />
+
+        <CheckBox
+            android:id="@+id/mutasi_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leelawad"
+            android:textStyle="bold"
+            android:enabled="false"
+            android:text="@string/mutasi"
+            app:layout_constraintStart_toStartOf="@+id/pn_dn_checkbox"
+            app:layout_constraintTop_toBottomOf="@+id/pn_ln_checkbox" />
+
+        <CheckBox
+            android:id="@+id/cuti_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/leelawad"
+            android:textStyle="bold"
+            android:enabled="false"
+            android:text="@string/cuti"
+            app:layout_constraintStart_toStartOf="@+id/pn_ln_checkbox"
+            app:layout_constraintTop_toBottomOf="@+id/pn_ln_checkbox" />
+
+        <CheckBox
+            android:id="@+id/tamu_checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:fontFamily="@font/leelawad"
+            android:textStyle="bold"
+            android:text="@string/tamu_perusahaan"
+            app:layout_constraintStart_toStartOf="@+id/sij_checkbox"
+            app:layout_constraintTop_toBottomOf="@+id/pn_ln_checkbox" />
+
+        <View
+            android:id="@+id/separator2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="#A4A4A4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mutasi_checkbox" />
+
+        <TextView
+            android:id="@+id/description_applicant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textSize="15sp"
+            android:fontFamily="@font/leelawdb"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:text="@string/kepentingan_keperluan"
+            app:layout_constraintStart_toStartOf="@+id/separator2"
+            app:layout_constraintTop_toBottomOf="@+id/separator2" />
+
+        <TextView
+            android:id="@+id/value_description_applicant"
+            android:layout_width="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_height="wrap_content"
+            android:text="@{permit_arg.title}"
+            android:fontFamily="@font/leelawad"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/description_applicant"
+            app:layout_constraintTop_toBottomOf="@+id/description_applicant"
+            tools:text="- Keperluan Keluarga" />
+
+        <View
+            android:id="@+id/separator3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:background="#A4A4A4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/value_description_applicant" />
+
+        <TextView
+            android:id="@+id/from_applicant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="@string/dari_asal"
+            android:fontFamily="@font/leelawad"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/separator3"
+            app:layout_constraintTop_toBottomOf="@+id/separator3" />
+
+        <TextView
+            android:id="@+id/value_from_applicant"
+            android:layout_width="0dp"
+            android:fontFamily="@font/leelawad"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:layout_height="wrap_content"
+            android:text="@{permit_arg.from.toUpperCase()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/from_applicant"
+            tools:text="Malang" />
+
+        <TextView
+            android:id="@+id/to_applicant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="@font/leelawad"
+            android:text="@string/tujuan"
+            app:layout_constraintStart_toStartOf="@+id/from_applicant"
+            app:layout_constraintTop_toBottomOf="@+id/from_applicant" />
+
+        <TextView
+            android:id="@+id/value_to_applicant"
+            android:layout_width="0dp"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:fontFamily="@font/leelawad"
+            android:layout_height="wrap_content"
+            android:text="@{permit_arg.to.toUpperCase()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/to_applicant"
+            tools:text="Surabaya" />
+
+        <TextView
+            android:id="@+id/date_leave_applicant"
+            android:layout_width="wrap_content"
+            android:textStyle="bold"
+            android:fontFamily="@font/leelawad"
+            android:layout_height="wrap_content"
+            android:text="@string/terhitung_mulai"
+            app:layout_constraintStart_toStartOf="@+id/to_applicant"
+            app:layout_constraintTop_toBottomOf="@+id/to_applicant" />
+
+        <TextView
+            android:id="@+id/value_date_leave_applicant"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{permit_arg.dateTo}"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:fontFamily="@font/leelawad"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/date_leave_applicant"
+            tools:text="26 / 9 / 2019" />
+
+        <TextView
+            android:id="@+id/date_back_applicant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/berangkat_kembali"
+            android:fontFamily="@font/leelawad"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/date_leave_applicant"
+            app:layout_constraintTop_toBottomOf="@+id/date_leave_applicant" />
+
+        <TextView
+            android:id="@+id/value_date_back_applicant"
+            android:layout_width="0dp"
+            android:fontFamily="@font/leelawad"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:layout_height="wrap_content"
+            android:text="@{permit_arg.dateBack}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/date_back_applicant"
+            tools:text="28 / 9 / 2019" />
+
+        <TextView
+            android:id="@+id/drive_applicant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/berkendaraan"
+            android:fontFamily="@font/leelawad"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/date_back_applicant"
+            app:layout_constraintTop_toBottomOf="@+id/date_back_applicant" />
+
+        <TextView
+            android:id="@+id/value_drive_applicant"
+            android:layout_width="0dp"
+            android:fontFamily="@font/leelawad"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:layout_height="wrap_content"
+            android:text="@{permit_arg.drive}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/drive_applicant"
+            tools:text="Pribadi" />
+
+        <TextView
+            android:id="@+id/cost_applicant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/biaya_ditanggung_oleh"
+            android:textStyle="bold"
+            android:fontFamily="@font/leelawad"
+            app:layout_constraintStart_toStartOf="@+id/drive_applicant"
+            app:layout_constraintTop_toBottomOf="@+id/drive_applicant" />
+
+        <TextView
+            android:id="@+id/value_cost_applicant"
+            android:layout_width="0dp"
+            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+            android:fontFamily="@font/leelawad"
+            android:layout_height="wrap_content"
+            android:text="@{permit_arg.cost}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/cost_applicant"
+            tools:text="Pribadi" />
+
+        <LinearLayout
+            android:id="@+id/button_nogotiate_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toTopOf="@+id/button_confirm_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="#FF5722"
+                android:textColor="#FF5722"
+                app:cornerRadius="15dp"
+                android:fontFamily="@font/leelawad"
+                android:textStyle="bold"
+                android:id="@+id/cancel_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/batal" />
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                app:strokeColor="#FF5722"
+                android:textColor="#FF5722"
+                android:id="@+id/negotiate_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/negosiasi" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/button_confirm_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/reject_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="#E12E46"
+                android:text="@string/tolak" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/accept_button"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="#619F1A"
+                android:text="@string/terima" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

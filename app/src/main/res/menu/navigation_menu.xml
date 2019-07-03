@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+            android:id="@id/dashboard_dest"
+            android:icon="@drawable/home"
+            android:title="@string/beranda"/>
+    <item
+            android:id="@id/history_dest"
+            android:icon="@drawable/history"
+            android:title="@string/riwayat"/>
+    <item
+            android:id="@id/profile_dest"
+            android:icon="@drawable/avatar"
+            android:title="@string/profile_menu"/>
+</menu>

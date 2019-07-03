@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
+            android:background="#F1EFF1"
+            android:orientation="vertical"
+            android:padding="16dp"
+            tools:context=".view.CreatePermitFragment">
+
+            <TextView
+                    android:id="@+id/judul"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Surat Keterangan"
+                    android:fontFamily="@font/leelawdb"
+                    android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                    android:textSize="25sp"
+                    android:layout_marginBottom="20dp"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <CheckBox
+                    android:id="@+id/pn_dn_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pn_dn"
+                    android:fontFamily="@font/leelawad"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <CheckBox
+                    android:id="@+id/pn_ln_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/pn_ln"
+                    android:fontFamily="@font/leelawad"
+                    app:layout_constraintStart_toEndOf="@+id/pn_dn_checkbox"
+                    app:layout_constraintTop_toTopOf="@+id/pn_dn_checkbox" />
+
+                <CheckBox
+                    android:id="@+id/sij_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="24dp"
+                    android:text="@string/sij"
+                    android:fontFamily="@font/leelawad"
+                    app:layout_constraintStart_toEndOf="@+id/pn_ln_checkbox"
+                    app:layout_constraintTop_toTopOf="@+id/pn_ln_checkbox" />
+
+                <CheckBox
+                    android:id="@+id/mutasi_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/mutasi"
+                    android:fontFamily="@font/leelawad"
+                    app:layout_constraintStart_toStartOf="@+id/pn_dn_checkbox"
+                    app:layout_constraintTop_toBottomOf="@+id/pn_ln_checkbox" />
+
+                <CheckBox
+                    android:id="@+id/cuti_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/cuti"
+                    android:fontFamily="@font/leelawad"
+                    app:layout_constraintStart_toStartOf="@+id/pn_ln_checkbox"
+                    app:layout_constraintTop_toBottomOf="@+id/pn_ln_checkbox" />
+
+                <CheckBox
+                    android:id="@+id/tamu_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/tamu_perusahaan"
+                    android:fontFamily="@font/leelawad"
+                    app:layout_constraintStart_toStartOf="@+id/sij_checkbox"
+                    app:layout_constraintTop_toBottomOf="@+id/pn_ln_checkbox" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:shapeAppearanceOverlay="@style/MaterialCardView.Rounded">
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColorHint="#C1C2C4">
+
+                <AutoCompleteTextView
+                    android:id="@+id/description_dropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:focusable="false"
+                    android:fontFamily="@font/leelawad"
+                    android:hint="@string/keterangan" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/another_inputlayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="#c1c2c4"
+                android:visibility="gone">
+
+                <EditText
+                    android:id="@+id/another_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/keterangan_lainnya"
+                    android:fontFamily="@font/leelawad"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/from_inputlayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="#c1c2c4">
+
+                <EditText
+                    android:id="@+id/from_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/dari_asal"
+                    android:fontFamily="@font/leelawad"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/to_inputlayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="#c1c2c4">
+
+                <EditText
+                    android:id="@+id/to_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/tujuan"
+                    android:fontFamily="@font/leelawad"
+                    android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/durasi_inputlayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="#c1c2c4">
+
+                <EditText
+                    android:id="@+id/durasi_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/lama_cuti_hari"
+                    android:fontFamily="@font/leelawad"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/date_to_inputlayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="#c1c2c4">
+
+                <EditText
+                    android:id="@+id/date_to_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_action_date"
+                    android:focusable="false"
+                    android:fontFamily="@font/leelawad"
+                    android:hint="@string/tanggal_berangkat"
+                    android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/date_back_inputlayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="#c1c2c4">
+
+                <EditText
+                    android:id="@+id/date_back_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_action_date"
+                    android:focusable="false"
+                    android:fontFamily="@font/leelawad"
+                    android:hint="@string/tanggal_kembali"
+                    android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/date_in_inputlayout"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="#c1c2c4">
+
+                <EditText
+                    android:id="@+id/date_in_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableEnd="@drawable/ic_action_date"
+                    android:focusable="false"
+                    android:fontFamily="@font/leelawad"
+                    android:hint="@string/tanggal_harus_masuk__kembali"
+                    android:inputType="date" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="#C1C2C4">
+
+                <AutoCompleteTextView
+                    android:id="@+id/cost_dropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:focusable="false"
+                    android:fontFamily="@font/leelawad"
+                    android:hint="@string/biaya_ditanggung_oleh"
+                    android:textColorHint="#C1C2C4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColorHint="#C1C2C4">
+
+                <AutoCompleteTextView
+                    android:id="@+id/drive_dropdown"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:focusable="false"
+                    android:fontFamily="@font/leelawad"
+                    android:hint="@string/berkendaraan"
+                    android:textColorHint="#C1C2C4" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/leelawad"
+                android:textStyle="bold"
+                app:cornerRadius="15dp"
+                android:backgroundTint="#619F1A"
+                android:text="@string/mengajukan" />
+        </LinearLayout>
+    </ScrollView>
+</layout>

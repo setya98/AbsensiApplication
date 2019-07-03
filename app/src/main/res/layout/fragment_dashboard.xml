@@ -1,0 +1,549 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="user"
+                type="com.pertamina.absensiapplication.model.User"/>
+        <variable
+                name="requestSize"
+                type="Integer"/>
+        <variable
+                name="completeSize"
+                type="Integer"/>
+        <variable
+                name="confirmSize"
+                type="Integer"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/dashboard_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:id="@+id/root_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:context=".view.DashbordFragment">
+
+                <com.google.android.material.appbar.AppBarLayout
+                        android:id="@+id/dashboard_appbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:backgroundTint="#F1EFF1"
+                        app:toolbarId="@+id/toolbar">
+
+                    <com.google.android.material.appbar.CollapsingToolbarLayout
+                            android:id="@+id/dashboard_collaps_toolbar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fitsSystemWindows="true"
+                            app:contentScrim="#D8D8D8"
+                            app:expandedTitleGravity="top"
+                            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="vertical">
+
+                            <com.google.android.material.card.MaterialCardView
+                                    android:id="@+id/top_card"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    app:cardBackgroundColor="@android:color/white"
+                                    app:cardElevation="10dp"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:shapeAppearanceOverlay="@style/MaterialCardView.BottomRounded">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:padding="20dp"
+                                        android:paddingTop="15dp">
+
+                                    <TextView
+                                            android:id="@+id/greeting1_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="5dp"
+                                            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                                            android:fontFamily="@font/leelawdb"
+                                            android:text="@{!user.name.empty ? `Hi, ` + user.name.substring(0, user.name.indexOf(' ')) : `Hi, `}"
+                                            android:textSize="25sp"
+                                            android:textStyle="bold"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"/>
+
+                                    <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:fontFamily="@font/leelawad"
+                                            android:textSize="12sp"
+                                            android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                                            android:text="@string/enjoy_your_day"
+                                            app:layout_constraintStart_toStartOf="@+id/greeting1_text"
+                                            app:layout_constraintTop_toBottomOf="@+id/greeting1_text"/>
+
+                                    <androidx.constraintlayout.widget.ConstraintLayout
+                                            android:layout_width="match_parent"
+                                            android:layout_height="match_parent">
+                                    <com.google.android.material.card.MaterialCardView
+                                            android:layout_width="75dp"
+                                            android:layout_height="95dp"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"
+                                            app:cardCornerRadius="5dp"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            android:layout_marginEnd="8dp">
+                                    <ImageView
+                                            android:layout_width="85dp"
+                                            android:layout_height="85dp"
+                                            android:layout_marginEnd="8dp"
+                                            android:contentDescription="@string/user_image"
+                                            android:scaleType="fitXY"
+                                            app:imageUrl="@{user.profileImage}"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"/>
+                                    </com.google.android.material.card.MaterialCardView>
+                                    </androidx.constraintlayout.widget.ConstraintLayout>
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </com.google.android.material.card.MaterialCardView>
+
+                            <com.google.android.material.card.MaterialCardView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginTop="40dp"
+                                    android:layout_marginEnd="20dp"
+                                    app:cardElevation="10dp"
+                                    android:layout_marginBottom="20dp"
+                                    app:layout_constraintBottom_toTopOf="@+id/bottom_card"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toBottomOf="@+id/top_card"
+                                    app:shapeAppearanceOverlay="@style/MaterialCardView.Rounded">
+
+                                <androidx.constraintlayout.widget.ConstraintLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="wrap_content"
+                                        android:padding="30dp">
+
+                                    <TextView
+                                            android:id="@+id/balance_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/sisa_saldo"
+                                            android:textSize="15sp"
+                                            android:textColor="#A4A4A4"
+                                            android:fontFamily="@font/leelawdb"
+                                            app:layout_constraintStart_toStartOf="parent"
+                                            app:layout_constraintTop_toTopOf="parent"/>
+
+                                    <TextView
+                                            android:id="@+id/value_balance_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@{user.leaveBalance + ` HK`}"
+                                            android:textColor="#E12E46"
+                                            android:fontFamily="@font/leelawdb"
+                                            android:textSize="35sp"
+                                            app:layout_constraintStart_toStartOf="@+id/balance_text"
+                                            app:layout_constraintTop_toBottomOf="@+id/balance_text"
+                                            tools:text="12 HK"/>
+
+                                    <TextView
+                                            android:id="@+id/position_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/posisi"
+                                            android:fontFamily="@font/leelawdb"
+                                            android:textColor="#A4A4A4"
+                                            android:textSize="15sp"
+                                            app:layout_constraintStart_toStartOf="@+id/value_balance_text"
+                                            app:layout_constraintTop_toBottomOf="@+id/value_balance_text"/>
+
+                                    <TextView
+                                            android:id="@+id/value_position_text"
+                                            android:layout_width="0dp"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginTop="4dp"
+                                            android:layout_marginEnd="10dp"
+                                            android:text="@{user.position}"
+                                            android:textSize="15sp"
+                                            android:fontFamily="@font/leelawdb"
+                                            app:layout_constraintBottom_toBottomOf="parent"
+                                            app:layout_constraintEnd_toStartOf="@+id/value_date_text"
+                                            app:layout_constraintStart_toStartOf="@+id/position_text"
+                                            app:layout_constraintTop_toBottomOf="@+id/position_text"
+                                            tools:text="Operation Head"/>
+
+                                    <TextView
+                                            android:id="@+id/date_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/tanggal"
+                                            android:textColor="#A4A4A4"
+                                            android:textSize="15sp"
+                                            android:fontFamily="@font/leelawdb"
+                                            app:layout_constraintStart_toStartOf="@+id/value_date_text"
+                                            app:layout_constraintTop_toTopOf="@+id/position_text"/>
+
+                                    <TextView
+                                            android:id="@+id/value_date_text"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:text="@string/june_19_2019"
+                                            android:textSize="15sp"
+                                            android:fontFamily="@font/leelawdb"
+                                            app:layout_constraintEnd_toEndOf="parent"
+                                            app:layout_constraintTop_toTopOf="@+id/value_position_text"/>
+                                </androidx.constraintlayout.widget.ConstraintLayout>
+                            </com.google.android.material.card.MaterialCardView>
+                        </LinearLayout>
+                    </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+                    <com.google.android.material.card.MaterialCardView
+                            android:id="@+id/bottom_card"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            app:cardElevation="10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:shapeAppearanceOverlay="@style/MaterialCardView.TopRounded">
+
+                        <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:paddingStart="20dp"
+                                android:paddingTop="18dp"
+                                android:paddingEnd="20dp">
+
+                            <TextView
+                                    android:id="@+id/your_permit_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/surat_izin_kamu"
+                                    android:fontFamily="@font/leelawdb"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"/>
+
+                            <LinearLayout
+                                    android:id="@+id/card_container"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:layout_marginTop="16dp"
+                                    android:orientation="horizontal">
+
+                                <com.google.android.material.card.MaterialCardView
+
+                                        android:id="@+id/process_card"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        app:cardBackgroundColor="#619F1A"
+                                        app:cardCornerRadius="14dp">
+
+                                    <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:paddingStart="10dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:paddingTop="22dp"
+                                            android:paddingEnd="10dp"
+                                            android:paddingBottom="22dp">
+
+                                        <TextView
+                                                android:id="@+id/permit_process_text"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/diproses"
+                                                android:layout_marginLeft="5dp"
+                                                android:fontFamily="@font/leelawdb"
+                                                android:textSize="15sp"
+                                                android:textColor="@color/mtrl_on_primary_emphasis_high_type"/>
+
+                                        <TextView
+                                                android:id="@+id/value_permit_process_text"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_marginLeft="5dp"
+                                                android:fontFamily="@font/leelawdb"
+                                                android:textSize="20sp"
+                                                android:text="@{requestSize+``}"
+                                                android:textColor="@color/colorWhite"/>
+                                    </LinearLayout>
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <com.google.android.material.card.MaterialCardView
+
+                                        android:id="@+id/finish_card"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="16dp"
+                                        android:layout_weight="1"
+                                        app:cardBackgroundColor="#4E7995"
+                                        app:cardCornerRadius="14dp">
+
+                                    <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:paddingStart="10dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:paddingTop="22dp"
+                                            android:paddingEnd="10dp"
+                                            android:paddingBottom="22dp">
+
+                                        <TextView
+                                                android:id="@+id/permit_approve_text"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/selesai"
+                                                android:fontFamily="@font/leelawdb"
+                                                android:textSize="15sp"
+                                                android:textColor="@color/mtrl_on_primary_emphasis_high_type"/>
+
+                                        <TextView
+                                                android:id="@+id/value_permit_approve_text"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:fontFamily="@font/leelawdb"
+                                                android:textSize="20sp"
+                                                android:text="@{completeSize+``}"
+                                                android:textColor="@color/colorWhite"/>
+                                    </LinearLayout>
+                                </com.google.android.material.card.MaterialCardView>
+
+                                <com.google.android.material.card.MaterialCardView
+                                        android:id="@+id/confirm_card"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginStart="16dp"
+                                        android:layout_weight="1"
+                                        app:cardBackgroundColor="#E12E46"
+                                        app:cardCornerRadius="14dp"
+                                        app:setVisibility="@{user}">
+
+                                    <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="vertical"
+                                            android:paddingStart="10dp"
+                                            android:layout_marginLeft="10dp"
+                                            android:paddingTop="22dp"
+                                            android:paddingEnd="10dp"
+                                            android:paddingBottom="22dp">
+
+                                        <TextView
+                                                android:id="@+id/permit_confirm_text"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:text="@string/konfirmasi"
+                                                android:fontFamily="@font/leelawdb"
+                                                android:textSize="15sp"
+                                                android:textColor="@color/mtrl_on_primary_emphasis_high_type"/>
+
+                                        <TextView
+                                                android:id="@+id/value_permit_confirm_text"
+                                                android:layout_width="wrap_content"
+                                                android:layout_height="wrap_content"
+                                                android:layout_gravity="center_horizontal"
+                                                android:fontFamily="@font/leelawdb"
+                                                android:textSize="20sp"
+                                                android:text="@{confirmSize+``}"
+                                                android:textColor="@color/colorWhite"/>
+                                    </LinearLayout>
+                                </com.google.android.material.card.MaterialCardView>
+                            </LinearLayout>
+
+                            <ImageView
+                                    android:id="@+id/up_arrow_image"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center_horizontal"
+                                    android:layout_marginTop="18dp"
+                                    android:contentDescription="@string/image_arrow"
+                                    android:src="@drawable/ic_arrow_up_black_24dp"/>
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <androidx.core.widget.NestedScrollView
+                        android:id="@+id/movie_view_pager"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:fillViewport="true"
+                        android:orientation="vertical"
+                        android:paddingTop="16dp"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                    <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        <LinearLayout
+                                android:id="@+id/processlist_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:fontFamily="@font/leelawdb"
+                                    android:text="@string/daftar_surat_izin_yang_belum_disetujui"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"/>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/permit_process_list"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"/>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:id="@+id/finishlist_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:fontFamily="@font/leelawdb"
+                                    android:text="@string/daftar_surat_izin_yang_sudah_selesai"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"/>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/permit_finish_list"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                                android:id="@+id/confirmlist_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:orientation="vertical"
+                                android:visibility="gone">
+
+                            <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:fontFamily="@font/leelawdb"
+                                    android:text="@string/daftar_surat_izin_yang_perlu_disetujui"
+                                    android:textSize="15sp"
+                                    android:textStyle="bold"/>
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                    android:id="@+id/permit_confirm_list"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"/>
+                        </LinearLayout>
+                    </RelativeLayout>
+                </androidx.core.widget.NestedScrollView>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                        android:id="@+id/floating_action_button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|end"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="8dp"
+                        app:fabSize="normal"
+                        app:srcCompat="@drawable/ic_action_plus"/>
+            </androidx.coordinatorlayout.widget.CoordinatorLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        <ImageView
+                android:visibility="gone"
+                android:contentDescription="@string/info_image"
+                android:id="@+id/empty_list_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintBottom_toTopOf="@+id/empty_list_text"
+        />
+
+        <TextView
+                android:visibility="gone"
+                android:id="@+id/empty_list_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/empty_list_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/empty_list_button"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/leelawad"
+                android:layout_marginTop="16dp"
+                app:layout_constraintHorizontal_bias="0.5"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+        />
+
+        <Button
+                android:visibility="gone"
+                android:id="@+id/empty_list_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/retry"
+                android:fontFamily="@font/leelawad"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/empty_list_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

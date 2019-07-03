@@ -1,0 +1,111 @@
+<resources>
+    <string name="app_name">Absensi Application</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_image">user_image</string>
+    <string name="enjoy_your_day">Semoga harimu menyenangkan!</string>
+    <string name="sisa_saldo">Sisa Saldo</string>
+    <string name="posisi">Posisi</string>
+    <string name="surat_izin_kamu">Surat Izin Kamu</string>
+    <string name="beranda">Beranda</string>
+    <string name="notifikasi">Notifikasi</string>
+    <string name="logout">Logout</string>
+    <string name="tanggal">Tanggal</string>
+    <string name="selesai">Selesai</string>
+    <string name="riwayat">Riwayat</string>
+    <string name="june_19_2019">June 19, 2019</string>
+    <string name="diproses">Diproses</string>
+    <string name="_5">5</string>
+    <string name="_1">1</string>
+    <string name="konfirmasi">Konfirmasi</string>
+    <string name="_8">8</string>
+    <string name="image_arrow">Image Arrow</string>
+    <string name="image_arrow_right">Image Arrow Right</string>
+    <string name="pn_dn">PN_DN</string>
+    <string name="pn_ln">PN-LN</string>
+    <string name="sij">SIJ</string>
+    <string name="mutasi">Mutasi</string>
+    <string name="cuti">Cuti</string>
+    <string name="tamu_perusahaan">Tamu Perusahaan</string>
+    <string name="dari_asal">Dari / Asal</string>
+    <string name="mengajukan">Mengajukan</string>
+    <string name="tujuan">Tempat Tujuan</string>
+    <string name="date">date</string>
+    <string name="tanggal_berangkat">Tanggal Berangkat</string>
+    <string name="tanggal_kembali">Tanggal Kembali</string>
+    <string name="tanggal_harus_masuk__kembali">Tanggal Harus Masuk Kembali</string>
+    <string name="email">Email</string>
+    <string name="kata_sandi">Kata Sandi</string>
+    <string name="berkendaraan">Berkendaraan</string>
+    <string name="biaya_ditanggung_oleh">Biaya Ditanggung Oleh</string>
+    <string name="keterangan">Keterangan</string>
+    <string name="lama_cuti_hari">Lama Cuti (Hari Kerja)</string>
+    <string name="tanggal_masuk_bekerja">Tanggal Masuk Bekerja</string>
+    <string name="keterangan_lainnya">Keterangan Lainnya</string>
+    <string name="tolak">tolak</string>
+    <string name="terima">terima</string>
+    <string name="nama">Nama</string>
+    <string name="surat_keterangan">Surat Keterangan</string>
+    <string name="mengijinkan_menugaskan">Dengan ini menginjinkan / menugaskan</string>
+    <string name="no_pekerja">No. Pekerja</string>
+    <string name="jabatan_golongan">Jabatan / Golongan</string>
+    <string name="eselon">Eselon</string>
+    <string name="untuk_melaksanakan">Untuk Melaksanakan / Mendapatkan / Dipergunakan Perusahaan</string>
+    <string name="terhitung_mulai">Terhitung Mulai</string>
+    <string name="berangkat_kembali">Berangkat / Kembali</string>
+    <string name="kepentingan_keperluan">Kepentingan / Keperluan</string>
+    <string name="negosiasi">negosiasi</string>
+    <string name="ubah_kata_sandi">Ubah Kata Sandi</string>
+    <string name="arrow_image">arrow image</string>
+    <string name="keluar">Keluar</string>
+    <string name="profile_menu">Profil</string>
+    <string name="batal">Batal</string>
+    <string name="daftar_surat_izin_yang_belum_disetujui">SIJ Yang Belum Disetujui</string>
+    <string name="daftar_surat_izin_yang_sudah_selesai">SIJ Yang Sudah Selesai</string>
+    <string name="daftar_surat_izin_yang_perlu_disetujui">SIJ Yang Perlu Disetujui</string>
+    <string name="info_image">Info Image</string>
+    <string name="retry">Retry</string>
+    <string name="technical_error">Please check your connection!</string>
+    <string name="no_result_found">No result found for your search</string>
+    <string name="atur_pengguna">Atur Pengguna</string>
+    <string name="icon_profile">icon profile</string>
+    <string name="kata_sandi_baru">Kata Sandi Baru</string>
+    <string name="ulangi_kata_sandi">Ulangi Kata Sandi</string>
+    <string name="ganti_kata_sandi">Ganti Kata Sandi</string>
+    <string name="member">Member</string>
+    <string name="saldo_cuti">Saldo Cuti</string>
+    <string name="atasan">Atasan</string>
+    <string name="operation_head">Operation Head</string>
+    <string name="ubah_pengguna">Ubah</string>
+    <string name="hapus_pengguna">Hapus</string>
+    <string name="tambah_pengguna">Tambah</string>
+
+    <string-array name="drive">
+        <item>Pribadi</item>
+        <item>Umum</item>
+    </string-array>
+
+    <string-array name="cost">
+        <item>Pribadi</item>
+        <item>Perusahaan</item>
+    </string-array>
+    <string-array name="description">
+        <item>Perkawinan Pekerja</item>
+        <item>Istri Pekerja Melahirkan</item>
+        <item>Istri/Suami/Anak/Menantu/Orang Tua/Mertua Meninggal Dunia</item>
+        <item>Orang Yang Menjadi Tanggungan Dan Tinggal Di Rumah Pekerja Meninggal Dunia</item>
+        <item>Saudara Kandung/Ipar Meninggal Dunia</item>
+        <item>Perkawinan Anak Pekerja</item>
+        <item>Perkawinan Saudara Kandung/Ipar Pekerja</item>
+        <item>Pengkhitanan Anak Pekerja</item>
+        <item>Haid</item>
+        <item>Baptis Anak Pekerja</item>
+        <item>Metatah Gigi/Potong Gigi(Hindu Bali)</item>
+        <item>Menghadiri Wisuda Sarjana Istri/Suami/Anak Pekerja</item>
+        <item>Istri Pekerja Keguguran</item>
+        <item>Aqiqah Anak Pekerja</item>
+        <item>Mengurus Dokumen KTP/Paspor/Visa/Akta Kelahiran Anak/SIM</item>
+        <item>Keterangan Lainnya</item>
+    </string-array>
+</resources>

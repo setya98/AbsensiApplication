@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_navigation"
+            app:startDestination="@id/dashboard_dest">
+
+    <fragment android:id="@+id/dashboard_dest" android:name="com.pertamina.absensiapplication.view.DashbordFragment"
+              android:label="Dashboard">
+        <action android:id="@+id/action_show_detail_permit" app:destination="@id/detail_permit_dest"
+                app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
+        <action
+            android:id="@+id/action_create_permit"
+            app:destination="@id/create_permit_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
+    </fragment>
+    <fragment android:id="@+id/detail_permit_dest"
+              android:name="com.pertamina.absensiapplication.view.DetailPermitFragment"
+              android:label="Detail Permit" tools:layout="@layout/fragment_detail_permit">
+        <argument
+            android:name="permit"
+            app:argType="com.pertamina.absensiapplication.model.Permit" />
+    </fragment>
+    <fragment android:id="@+id/create_permit_dest"
+              android:name="com.pertamina.absensiapplication.view.CreatePermitFragment"
+              android:label="Create Permit" tools:layout="@layout/fragment_create_permit">
+        <action
+            android:id="@+id/action_show_dashboard"
+            app:destination="@id/dashboard_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/dashboard_dest"
+            app:popUpToInclusive="true" />
+        <argument android:name="user" app:argType="com.pertamina.absensiapplication.model.User"/>
+    </fragment>
+    <fragment android:id="@+id/notification_dest"
+              android:name="com.pertamina.absensiapplication.view.NotificationFragment" android:label="Notification"
+              tools:layout="@layout/fragment_notification"/>
+    <fragment
+        android:id="@+id/login_dest"
+        android:name="com.pertamina.absensiapplication.view.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_show_dashboard"
+            app:destination="@id/dashboard_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/login_dest"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment android:id="@+id/history_dest" android:name="com.pertamina.absensiapplication.view.HistoryFragment"
+              android:label="History" tools:layout="@layout/fragment_history">
+        <action android:id="@+id/action_show_detail_permit" app:destination="@id/detail_permit_dest"
+                app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment
+        android:id="@+id/profile_dest"
+        android:name="com.pertamina.absensiapplication.view.ProfileFragment"
+        android:label="Profile"
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_logout"
+            app:destination="@id/login_dest"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:popUpTo="@+id/dashboard_dest"
+            app:popUpToInclusive="true" />
+        <action android:id="@+id/action_manage_users" app:destination="@id/manage_dest"
+                app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment android:id="@+id/manage_dest" android:name="com.pertamina.absensiapplication.view.ManageFragment"
+              android:label="Manage Users" tools:layout="@layout/fragment_manage">
+        <action android:id="@+id/action_show_user_detail" app:destination="@id/user_detail_dest"
+                app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
+        <action android:id="@+id/action_add_user" app:destination="@id/add_user_dest"
+                app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+    <fragment android:id="@+id/user_detail_dest" android:name="com.pertamina.absensiapplication.view.DetailUserFragment"
+              android:label="User Detail" tools:layout="@layout/fragment_detail_user">
+        <argument android:name="user" app:argType="com.pertamina.absensiapplication.model.User"/>
+    </fragment>
+    <fragment android:id="@+id/add_user_dest" android:name="com.pertamina.absensiapplication.view.AddUserFragment"
+              android:label="Add User" tools:layout="@layout/fragment_add_user">
+        <action android:id="@+id/action_show_user_list" app:destination="@id/manage_dest"
+                app:enterAnim="@anim/slide_in_right" app:exitAnim="@anim/slide_out_left"
+                app:popEnterAnim="@anim/slide_in_left" app:popExitAnim="@anim/slide_out_right"/>
+    </fragment>
+</navigation>

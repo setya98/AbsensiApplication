@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+                name="user"
+                type="com.pertamina.absensiapplication.model.User"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/profile_refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <LinearLayout
+                    android:id="@+id/root_layout"
+                    android:background="#F1EFF1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    tools:context=".view.ProfileFragment">
+
+                <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/top_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardElevation="10dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:shapeAppearanceOverlay="@style/MaterialCardView.BottomRounded">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center_horizontal"
+                            android:orientation="vertical"
+                            android:padding="20dp">
+
+                        <com.google.android.material.card.MaterialCardView
+                                android:id="@+id/user_profile_image"
+                                android:layout_width="100dp"
+                                android:layout_height="120dp">
+
+                            <ImageView
+                                    android:id="@+id/profile_image"
+                                    imageUrl="@{user.profileImage}"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:contentDescription="@string/user_image"
+                                    android:scaleType="fitXY"/>
+                        </com.google.android.material.card.MaterialCardView>
+
+                        <TextView
+                                android:id="@+id/user_name"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:text="@{user.name}"
+                                android:fontFamily="@font/leelawdb"
+                                android:textSize="25sp"
+                                android:textColor="@color/common_google_signin_btn_text_dark_focused"
+                                tools:text="Setya"/>
+
+                        <TextView
+                                android:id="@+id/user_posisiton"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:text="@{user.position}"
+                                android:fontFamily="@font/leelawdb"
+                                android:textSize="15sp"
+                                tools:text="Operation Head"/>
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/center_card"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="30dp"
+                        app:cardElevation="10dp"
+                        app:cardBackgroundColor="@android:color/white"
+                        app:shapeAppearanceOverlay="@style/MaterialCardView.Rounded">
+
+                    <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="7dp"
+                            android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/manage_user_menu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                            <ImageView
+                                    android:background="@drawable/settings"
+                                    android:id="@+id/manage_icon"
+                                    android:layout_margin="26dp"
+                                    android:contentDescription="@string/icon_profile"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"/>
+                            <TextView
+                                    android:id="@+id/manage_user"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/atur_pengguna"
+                                    android:textSize="17sp"
+                                    android:fontFamily="@font/leelawad"
+                                    app:layout_constraintHorizontal_bias="0.1"
+                                    app:layout_constraintBottom_toBottomOf="@+id/manage_icon"
+                                    app:layout_constraintStart_toEndOf="@+id/manage_icon"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/manage_icon"/>
+
+                            <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:background="@drawable/right"
+                                    android:contentDescription="@string/arrow_image"
+                                    android:layout_marginRight="20dp"
+                                    app:layout_constraintBottom_toBottomOf="@+id/manage_user_menu"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/manage_user_menu"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                                android:id="@+id/separator1"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#F1EFF1"/>
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/edit_password_menu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                            <ImageView
+                                    android:background="@drawable/password"
+                                    android:id="@+id/password_icon"
+                                    android:layout_margin="26dp"
+                                    android:contentDescription="@string/icon_profile"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"/>
+                            <TextView
+                                    android:id="@+id/edit_password"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    app:layout_constraintHorizontal_bias="0.1"
+                                    app:layout_constraintBottom_toBottomOf="@+id/password_icon"
+                                    app:layout_constraintStart_toEndOf="@+id/password_icon"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/password_icon"
+                                    android:text="@string/ubah_kata_sandi"
+                                    android:fontFamily="@font/leelawad"
+                                    android:textSize="17sp"/>
+
+                            <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginRight="20dp"
+                                    android:background="@drawable/right"
+                                    android:contentDescription="@string/arrow_image"
+                                    app:layout_constraintBottom_toBottomOf="@+id/edit_password_menu"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/edit_password_menu"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <View
+                                android:id="@+id/separator2"
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#F1EFF1"/>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/sign_out_menu"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                            <ImageView
+                                    android:background="@drawable/logout"
+                                    android:id="@+id/logout_icon"
+                                    android:layout_margin="26dp"
+                                    android:contentDescription="@string/icon_profile"
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"/>
+                            <TextView
+                                    android:id="@+id/sign_out"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/keluar"
+                                    android:textSize="17sp"
+                                    android:fontFamily="@font/leelawad"
+                                    app:layout_constraintHorizontal_bias="0.06"
+                                    app:layout_constraintBottom_toBottomOf="@+id/logout_icon"
+                                    app:layout_constraintStart_toEndOf="@+id/logout_icon"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/logout_icon"/>
+
+                            <ImageView
+                                    android:layout_width="18dp"
+                                    android:layout_height="18dp"
+                                    android:layout_marginRight="20dp"
+                                    android:background="@drawable/right"
+                                    android:contentDescription="@string/arrow_image"
+                                    app:layout_constraintBottom_toBottomOf="@+id/sign_out_menu"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="@+id/sign_out_menu"/>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+                </com.google.android.material.card.MaterialCardView>
+            </LinearLayout>
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <ImageView
+                android:visibility="gone"
+                android:contentDescription="@string/info_image"
+                android:id="@+id/empty_list_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="fitXY"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintBottom_toTopOf="@+id/empty_list_text"
+        />
+
+        <TextView
+                android:visibility="gone"
+                android:id="@+id/empty_list_text"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/empty_list_image"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/empty_list_button"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/leelawad"
+                android:layout_marginTop="16dp"
+                app:layout_constraintHorizontal_bias="0.5"
+                android:textSize="18sp"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+        />
+
+        <Button
+                android:visibility="gone"
+                android:id="@+id/empty_list_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/retry"
+                android:fontFamily="@font/leelawad"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@+id/empty_list_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="16dp"
+        />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
